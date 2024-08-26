@@ -1,7 +1,8 @@
 on:
   push:
     branches:
-      - "task-1" # change to the branch you wish to deploy from
+      - "master" # change to the branch you wish to deploy from
+      - "develop" # change to the branch you wish to deploy from
 env:
   APP_PUBLIC_PATH: ${{ vars.CI_APP_PUBLIC_PATH }} # doesn't work despite the env var has been added in the config
 
