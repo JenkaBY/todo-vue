@@ -1,0 +1,22 @@
+on:
+  push:
+    branches:
+      - "task-1" # change to the branch you wish to deploy from
+env:
+  APP_PUBLIC_PATH: ${{ vars.CI_APP_PUBLIC_PATH }} # doesn't work despite the env var has been added in the config
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - id: build-publish
+        uses: bitovi/github-actions-react-to-github-pages@v1.2.4
+        with:
+          install_command: 'npm ci'
+          build_command: "npm run build"
+          path: dist
