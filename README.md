@@ -3,7 +3,7 @@
 ![Todo application](/docs/an-app-design.png "todo app")
 
 The tasks list:
-- [ ] Task 1: Create a Project using VUE CLI
+- [x] Task 1: Create a Project using VUE CLI
 - [ ] Task 2: Create project markup
 - [ ] Task 3: Split the application into components - Atomic Design
 - [ ] Task 4: Adding interactivity with VueX - State
