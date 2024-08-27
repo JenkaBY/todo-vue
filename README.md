@@ -4,15 +4,13 @@
 
 The tasks list:
 - [x] Task 1: Create a Project using VUE CLI
-- [ ] Task 2: Create project markup
-- [ ] Task 3: Split the application into components - Atomic Design
-- [ ] Task 4: Adding interactivity with VueX - State
-- [ ] Task 5: Adding interactivity with VueX - Actions Add/Check/Delete
-- [ ] Task 6: Adding interactivity with VueX - Getters filters
-- [ ] Task 7: LocalStorage as Repository (Not redux persist)
-- [ ] Task 8: ESLint/Stylelint/Husky tools
-- [ ] Task 9: Unit tests - snapshots, coverage
-- [ ] Task 10: Unit tests - components
-- [ ] Task 11: Unit test - store
-- [ ] Task 12: Unit test - repository
-- [ ] Task 13: E2E tests Cypress
+- [ ] Task 2: Set Application Background and Organize Folder Structure
+- [ ] Task 3: Implement UI for Input Field and Validation
+- [ ] Task 4: Create Task List with Add Task Functionality
+- [ ] Task 5: Implement Task Completion Functionality (Checkbox)
+- [ ] Task 6: Implement Task Deletion Functionality (Delete Icon)
+- [ ] Task 7: Implement Drag-and-Drop Functionality for Task List
+- [ ] Task 8: Implement Remaining Tasks Counter
+- [ ] Task 9: Implement Filters (All, Active, Completed)
+- [ ] Task 10: Implement Clear Completed Button
+- [ ] [OPTIONAL] Task 11: Implement End-to-End (E2E) Testing with Cypress
