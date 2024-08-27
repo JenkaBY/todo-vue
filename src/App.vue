@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <header>
+  <header class="border-2">
     <h1>It's header</h1>
   </header>
 
   <main>
-    <div>It's main section</div>
+    <div class="border-2">It's main section</div>
   </main>
 </template>
 
