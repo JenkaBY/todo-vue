@@ -4,7 +4,7 @@ import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import { ref } from 'vue'
 
 interface TodoInputTaskProps {
-  isTaskCompleted: boolean,
+  isTaskCompleted: boolean
 }
 
 withDefaults(defineProps<TodoInputTaskProps>(), {
@@ -27,7 +27,7 @@ const addNewTask = (event) => {
 
 const onKeyPress = (event) => {
   console.log('on key Pressed:', event.target.value)
-  console.log('on key Pressed length:', event.target.value.length )
+  console.log('on key Pressed length:', event.target.value.length)
   console.log('on key Pressed length <=:', event.target.value.length <= 150)
   const validatedValue = event.target.value
   if (isInvalidTask.value && isValidTask.test(validatedValue) && validatedValue.length <= 150) {
@@ -38,12 +38,13 @@ const onKeyPress = (event) => {
 </script>
 
 <template>
-  <div class="flex flex-row justify-between p-2 bg-white rounded-lg"
-       :class="{ 'border border-pink-500': isInvalidTask }">
+  <div
+    class="flex flex-row justify-between p-2 bg-white rounded-lg"
+    :class="{ 'border border-pink-500': isInvalidTask }"
+  >
     <TaskStatusIcon :completed="false" :inactive="true" class="m-1.5" />
-    <TodoInput class="w-full pl-2 pr-2" :onEnterPress="addNewTask" :onKeyPress="onKeyPress"/>
+    <TodoInput class="w-full pl-2 pr-2" :onEnterPress="addNewTask" :onKeyPress="onKeyPress" />
   </div>
 </template>
 
-<style scoped>
-</style>
+<style scoped></style>
