@@ -4,7 +4,7 @@ import { providerFunctionName } from '@/constants/constants'
 
 import AppTitle from '@/components/atoms/AppTitle.vue'
 
-const applicationTitle = inject(providerFunctionName.applicationTitle)
+const applicationTitle = inject<string>(providerFunctionName.applicationTitle, 'appName')
 const moonUnicode = '&#9790;'
 </script>
 
