@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+
 import TodoInput from '@/components/atoms/TodoInput.vue'
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
-import { ref } from 'vue'
 
 interface TodoInputTaskProps {
   isTaskCompleted: boolean

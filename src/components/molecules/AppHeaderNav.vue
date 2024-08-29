@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { inject } from 'vue'
+
 import { providerFunctionName } from '@/constants/constants'
 
 import AppTitle from '@/components/atoms/AppTitle.vue'
