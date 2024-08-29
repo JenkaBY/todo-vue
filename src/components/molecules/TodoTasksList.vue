@@ -6,7 +6,9 @@ const todoTasksStore = useTodoTasksStore()
 
 <template>
   <ul>
-    <li v-for="task in todoTasksStore.tasks" :key="task.id">{{ task.description }} {{ task.id }} {{ task.status }}</li>
+    <li v-for="task in todoTasksStore.tasks" :key="task.id">
+      {{ task.description }} {{ task.id }} {{ task.status }}
+    </li>
   </ul>
 </template>
 
