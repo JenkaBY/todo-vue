@@ -5,7 +5,7 @@
 The tasks list:
 - [x] Task 1: Create a Project using VUE CLI
 - [x] Task 2: Set Application Background and Organize Folder Structure
-- [ ] Task 3: Implement UI for Input Field and Validation
+- [x] Task 3: Implement UI for Input Field and Validation
 - [ ] Task 4: Create Task List with Add Task Functionality
 - [ ] Task 5: Implement Task Completion Functionality (Checkbox)
 - [ ] Task 6: Implement Task Deletion Functionality (Delete Icon)
