@@ -1,23 +1,35 @@
 <script setup lang="ts">
 interface TodoInputProps {
-  onEnterPress?: Function
-  onKeyPress?: Function
+  inputValue: string
+  placeHolder: string
 }
 
-const props: TodoInputProps = withDefaults(defineProps<TodoInputProps>(), {
-  onEnterPress: (event) => console.log('Default onEnterPress event:', event.target.value),
-  onKeyPress: (event) => console.log('Default onKeyPress event:', event.target.value),
-  currentTask: ''
-}) as TodoInputProps
+withDefaults(defineProps<TodoInputProps>(), {
+  inputValue: '',
+  placeHolder: 'Enter a text...'
+})
+
+const emit = defineEmits<{
+  (e: 'update:inputValue', value: string): any
+  (e: 'enterKeyPressed', value: string): any
+}>()
+
+const handleEnterKeyPressed = (event: any) => {
+  emit('enterKeyPressed', event.target.value)
+}
+const handleUpdate = (event: any) => {
+  emit('update:inputValue', event.target.value)
+}
 </script>
 
 <template>
   <input
     type="text"
-    placeholder="Enter a new task..."
     class="focus:outline-none"
-    @keyup="props.onKeyPress"
-    @keyup.enter="props.onEnterPress"
+    :placeholder="placeHolder"
+    :value="inputValue"
+    @keyup.enter="handleEnterKeyPressed"
+    @input="handleUpdate"
   />
 </template>
 

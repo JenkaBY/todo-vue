@@ -15,7 +15,6 @@ const props = withDefaults(defineProps<CompletedIconProps>(), {
 }) as CompletedIconProps
 
 const completed = ref(props.completed)
-
 </script>
 
 <template>
