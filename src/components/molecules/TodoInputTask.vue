@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import useVuelidate from '@vuelidate/core'
+import { maxLength, required } from '@vuelidate/validators'
 import { computed, ref } from 'vue'
 
 import TodoInput from '@/components/atoms/TodoInput.vue'
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
-import { maxLength, required } from '@vuelidate/validators'
 import { app } from '@/constants/constants'
-import useVuelidate from '@vuelidate/core'
+import { useTodoTasksStore } from '@/stores/todaTasks'
 
 interface TodoInputTaskProps {
   isTaskCompleted: boolean
@@ -14,6 +15,7 @@ interface TodoInputTaskProps {
 withDefaults(defineProps<TodoInputTaskProps>(), {
   isTaskCompleted: false
 })
+const todoTasksStore = useTodoTasksStore()
 
 const inputTodoTaskValue = ref<string>('')
 const rules = computed(() => ({
@@ -30,6 +32,7 @@ const addNewTask = () => {
     .then((res) => {
       if (res) {
         console.log('Valid value', inputTodoTaskValue.value)
+        todoTasksStore.addTask(inputTodoTaskValue.value)
         inputTodoTaskValue.value = ''
         $v.value.$reset()
       }
