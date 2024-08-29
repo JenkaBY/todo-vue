@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { useTodoTasksStore } from '@/stores/todaTasks'
 
-const items = reactive<number[]>([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12])
+const todoTasksStore = useTodoTasksStore()
 </script>
 
 <template>
   <ul>
-    <li v-for="item in items" :key="item">Todo {{ item }}</li>
+    <li v-for="task in todoTasksStore.tasks" :key="task.id">{{ task.description }} {{ task.id }} {{ task.status }}</li>
   </ul>
 </template>
 
