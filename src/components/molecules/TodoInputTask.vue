@@ -43,7 +43,7 @@ const addNewTask = () => {
 <template>
   <div class="flex flex-col justify-start">
     <div
-      class="flex flex-row justify-between p-2 bg-white rounded-lg"
+      class="flex flex-row justify-between p-2 bg-white rounded-lg input-wrapper"
       :class="{
         'border border-pink-500': $v.inputTodoTaskValue.$error && $v.inputTodoTaskValue.$dirty
       }"
@@ -58,7 +58,7 @@ const addNewTask = () => {
     </div>
     <small
       v-if="$v.inputTodoTaskValue.$dirty && $v.inputTodoTaskValue.$error"
-      class="ml-5 text-pink-500"
+      class="validation-message ml-5 text-pink-500"
     >
       {{ $v.inputTodoTaskValue.$errors[0].$message }}</small
     >
