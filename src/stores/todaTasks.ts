@@ -26,6 +26,9 @@ export const useTodoTasksStore = defineStore('todoTasks', {
       this.tasks.splice(index, 1)
     }
   },
+  persist: {
+    debug: true
+  },
 })
 
 export interface TodoTask {
