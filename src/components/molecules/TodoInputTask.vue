@@ -57,6 +57,7 @@ const addNewTask = () => {
         v-model:input-value.trim="inputTodoTaskValue"
         @enter-key-pressed="addNewTask"
         place-holder="Enter a new task..."
+        :is-disabled="false"
       />
     </div>
     <small
