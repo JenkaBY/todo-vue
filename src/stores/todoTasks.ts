@@ -21,7 +21,7 @@ export const useTodoTasksStore = defineStore('todoTasks', {
       this.tasks.push({ description, id: this.nextId++, status: TodoTaskStatus.READY_TO_START })
     },
     removeTask(task: TodoTask) {
-      const indexToDelete = this.tasks.findIndex(t => t.id === task.id)
+      const indexToDelete = this.tasks.findIndex((t) => t.id === task.id)
       this.tasks.splice(indexToDelete, 1)
     }
   },
