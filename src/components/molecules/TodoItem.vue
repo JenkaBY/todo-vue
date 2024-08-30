@@ -12,7 +12,7 @@ interface TodoItemProps {
 const todoTask = defineProps<TodoItemProps>()
 
 const isCompletedTask = computed<boolean>(() => {
-  return todoTask.item.status === TodoTaskStatus.COMPLETED;
+  return todoTask.item.status === TodoTaskStatus.COMPLETED
 })
 </script>
 
@@ -28,6 +28,4 @@ const isCompletedTask = computed<boolean>(() => {
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

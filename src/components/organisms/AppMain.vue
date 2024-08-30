@@ -6,7 +6,7 @@ import TodoTasksList from '@/components/molecules/TodoTasksList.vue'
 <template>
   <main class="max-h-screen">
     <TodoInputTask class="-mt-20" :isTaskCompleted="false" />
-    <TodoTasksList class="mt-8 overflow-auto max-h-screen-60"/>
+    <TodoTasksList class="mt-8 overflow-auto max-h-screen-60" />
   </main>
 </template>
 

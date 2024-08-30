@@ -8,7 +8,7 @@ interface TodoInputProps {
 withDefaults(defineProps<TodoInputProps>(), {
   inputValue: '',
   placeHolder: 'Enter a text...',
-  isDisabled: false,
+  isDisabled: false
 })
 
 const emit = defineEmits<{

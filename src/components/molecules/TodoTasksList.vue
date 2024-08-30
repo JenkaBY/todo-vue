@@ -6,10 +6,15 @@ const todoTasksStore = useTodoTasksStore()
 </script>
 
 <template>
-  <ul class="bg-white rounded-t-lg rounded-b-lg shadow-xl shadow-slate-200 divide-y divide-slate-200">
-    <li v-for="task in todoTasksStore.tasks" :key="task.id"
-        class="first:rounded-t-lg last:rounded-b-lg bg-white">
-      <TodoItem :item="task" ></TodoItem>
+  <ul
+    class="bg-white rounded-t-lg rounded-b-lg shadow-xl shadow-slate-200 divide-y divide-slate-200"
+  >
+    <li
+      v-for="task in todoTasksStore.tasks"
+      :key="task.id"
+      class="first:rounded-t-lg last:rounded-b-lg bg-white"
+    >
+      <TodoItem :item="task"></TodoItem>
     </li>
   </ul>
 </template>
