@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
-import { type TodoTask, TodoTaskStatus } from '@/stores/todaTasks'
+import { type TodoTask, TodoTaskStatus } from '@/stores/todoTasks'
 
 interface TodoItemProps {
   item: TodoTask
