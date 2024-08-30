@@ -1,14 +1,12 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { describe, expect, it } from 'vitest'
 import { TodoTaskStatus, useTodoTasksStore } from '@/stores/todoTasks.ts'
 import { createTestingPinia } from '@pinia/testing'
 import { createPinia, setActivePinia } from 'pinia'
 
 describe('Todo Task store', () => {
-  beforeEach(() => {
-    setActivePinia(createPinia())
-  })
-
   it('initial state of task should be the following', () => {
+    setActivePinia(createPinia())
+
     const todoStore = useTodoTasksStore()
 
     expect(todoStore.tasks).toEqual([])

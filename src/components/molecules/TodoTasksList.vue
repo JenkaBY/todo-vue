@@ -14,7 +14,7 @@ const todoTasksStore = useTodoTasksStore()
       :key="task.id"
       class="first:rounded-t-lg last:rounded-b-lg bg-white"
     >
-      <TodoItem :item="task"></TodoItem>
+      <TodoItem :item="task" class="task-item"></TodoItem>
     </li>
   </ul>
 </template>
