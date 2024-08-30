@@ -21,13 +21,11 @@ export const useTodoTasksStore = defineStore('todoTasks', {
       this.tasks.push({ description, id: this.nextId++, status: TodoTaskStatus.READY_TO_START })
     },
     removeTask(task: TodoTask) {
-      const index = this.tasks.indexOf(task)
-      this.tasks.splice(index, 1)
+      const indexToDelete = this.tasks.findIndex((t) => t.id === task.id)
+      this.tasks.splice(indexToDelete, 1)
     }
   },
-  persist: {
-    debug: true
-  }
+  persist: true
 })
 
 export interface TodoTask {

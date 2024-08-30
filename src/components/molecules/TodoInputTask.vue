@@ -6,7 +6,7 @@ import { computed, ref } from 'vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import { app } from '@/constants/constants'
-import { useTodoTasksStore } from '@/stores/todaTasks'
+import { useTodoTasksStore } from '@/stores/todoTasks'
 
 interface TodoInputTaskProps {
   isTaskCompleted: boolean
@@ -57,6 +57,7 @@ const addNewTask = () => {
         v-model:input-value.trim="inputTodoTaskValue"
         @enter-key-pressed="addNewTask"
         place-holder="Enter a new task..."
+        :is-disabled="false"
       />
     </div>
     <small

@@ -2,11 +2,13 @@
 interface TodoInputProps {
   inputValue: string
   placeHolder: string
+  isDisabled: boolean
 }
 
 withDefaults(defineProps<TodoInputProps>(), {
   inputValue: '',
-  placeHolder: 'Enter a text...'
+  placeHolder: 'Enter a text...',
+  isDisabled: false
 })
 
 const emit = defineEmits<{
@@ -24,8 +26,9 @@ const handleUpdate = (event: any) => {
 
 <template>
   <input
+    :disabled="isDisabled"
     type="text"
-    class="focus:outline-none"
+    class="focus:outline-none bg-transparent"
     :placeholder="placeHolder"
     :value="inputValue"
     @keyup.enter="handleEnterKeyPressed"
