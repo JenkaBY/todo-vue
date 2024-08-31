@@ -31,7 +31,6 @@ const addNewTask = () => {
   result
     .then((res) => {
       if (res) {
-        console.log('Valid value', inputTodoTaskValue.value)
         todoTasksStore.addTask(inputTodoTaskValue.value)
         inputTodoTaskValue.value = ''
         $v.value.$reset()

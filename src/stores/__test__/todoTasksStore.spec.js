@@ -163,4 +163,38 @@ describe('Todo Task store', () => {
 
     expect(todoStore.itemsLeftCount).toEqual(2)
   })
+
+  it('removeCompleted should all completed tasks', () => {
+    setActivePinia(
+      createTestingPinia({
+        initialState: {
+          todoTasks: {
+            tasks: [
+              {
+                id: 0,
+                isCompleted: true
+              },
+              {
+                id: 1,
+                isCompleted: false
+              },
+              {
+                id: 3,
+                isCompleted: true
+              }
+            ]
+          }
+        },
+        stubActions: false
+      })
+    )
+    const todoStore = useTodoTasksStore()
+    todoStore.removeCompleted()
+
+    expect(todoStore.tasks.length).toEqual(1)
+    expect(todoStore.tasks).toContainEqual({
+      id: 1,
+      isCompleted: false
+    })
+  })
 })

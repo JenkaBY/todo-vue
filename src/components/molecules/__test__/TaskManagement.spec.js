@@ -56,6 +56,20 @@ describe('TaskManagement', () => {
     expect(wrapper.findAll('button.filter-item.active').length).toEqual(1)
   })
 
+  it('should contain 1 remove completed buttons', () => {
+    const wrapper = mount(TaskManagement, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            stubActions: false
+          })
+        ]
+      }
+    })
+
+    expect(wrapper.findAll('button.clear-completed-btn').length).toEqual(1)
+  })
+
   it('active button should have specific classes', () => {
     const wrapper = mount(TaskManagement, {
       global: {
