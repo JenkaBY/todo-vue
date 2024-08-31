@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useTodoTasksStore } from '@/stores/todoTasks'
+import { useTodoTasksStore } from '@/stores/todoTasksStore'
 import TodoItem from '@/components/molecules/TodoItem.vue'
 
 const todoTasksStore = useTodoTasksStore()

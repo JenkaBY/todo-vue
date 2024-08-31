@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { TodoTaskStatus, useTodoTasksStore } from '@/stores/todoTasks.ts'
+import { useTodoTasksStore } from '@/stores/todoTasksStore.ts'
 import { createTestingPinia } from '@pinia/testing'
 import { createPinia, setActivePinia } from 'pinia'
 
@@ -17,38 +17,30 @@ describe('Todo Task store', () => {
   it.each([
     [
       [
-        { id: 0, status: 'COMPLETED' },
-        { id: 1, status: 'READY_TO_START' }
+        { id: 0, isCompleted: true },
+        { id: 1, isCompleted: false }
       ],
-      [{ id: 0, status: 'COMPLETED' }],
+      [{ id: 0, isCompleted: true }],
       'COMPLETED'
     ],
     [
       [
-        { id: 0, status: 'COMPLETED' },
-        { id: 1, status: 'READY_TO_START' }
+        { id: 0, isCompleted: true },
+        { id: 1, isCompleted: false }
       ],
-      [{ id: 1, status: 'READY_TO_START' }],
-      'READY_TO_START'
+      [{ id: 1, isCompleted: false }],
+      'ACTIVE'
     ],
     [
       [
-        { id: 0, status: 'COMPLETED' },
-        { id: 1, status: 'READY_TO_START' }
+        { id: 0, isCompleted: true },
+        { id: 1, isCompleted: false }
       ],
       [
-        { id: 0, status: 'COMPLETED' },
-        { id: 1, status: 'READY_TO_START' }
+        { id: 0, isCompleted: true },
+        { id: 1, isCompleted: false }
       ],
       'ALL'
-    ],
-    [
-      [
-        { id: 0, status: 'COMPLETED' },
-        { id: 1, status: 'READY_TO_START' }
-      ],
-      [],
-      'STATUS_IS_NOT_EXIST'
     ]
   ])(
     'for state %p of store, the filterTodoTasks getter should return % when filter is %p ',
@@ -82,7 +74,7 @@ describe('Todo Task store', () => {
 
     expect(todoStore.tasks).length(1)
     expect(todoStore.tasks).toEqual([
-      { id: 0, description: 'TEST DESCRIPTION', status: TodoTaskStatus.READY_TO_START }
+      { id: 0, description: 'TEST DESCRIPTION', isCompleted: false }
     ])
     expect(todoStore.nextId).toEqual(1)
   })
@@ -95,11 +87,11 @@ describe('Todo Task store', () => {
             tasks: [
               {
                 id: 0,
-                status: TodoTaskStatus.COMPLETED
+                isCompleted: true
               },
               {
                 id: 1,
-                status: TodoTaskStatus.READY_TO_START
+                isCompleted: false
               }
             ]
           }
@@ -109,9 +101,9 @@ describe('Todo Task store', () => {
     )
     const todoStore = useTodoTasksStore()
 
-    todoStore.removeTask({ id: 0, status: TodoTaskStatus.COMPLETED })
+    todoStore.removeTask({ id: 0, isCompleted: true })
 
     expect(todoStore.tasks).length(1)
-    expect(todoStore.tasks).toEqual([{ id: 1, status: TodoTaskStatus.READY_TO_START }])
+    expect(todoStore.tasks).toEqual([{ id: 1, isCompleted: false }])
   })
 })

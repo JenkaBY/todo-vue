@@ -4,21 +4,24 @@ export const useTodoTasksStore = defineStore('todoTasks', {
   state: () => {
     return {
       tasks: [] as TodoTask[],
-      filter: 'ALL' as 'ALL' | 'COMPLETED' | 'READY_TO_START',
+      filter: 'ALL' as 'ALL' | 'COMPLETED' | 'ACTIVE',
       nextId: 0
     }
   },
   getters: {
     filterTodoTasks(state) {
-      if (state.filter === 'ALL') {
-        return state.tasks
+      if (state.filter === 'COMPLETED') {
+        return state.tasks.filter((task) => task.isCompleted)
       }
-      return state.tasks.filter((task) => task.status.toString() === state.filter)
+      if (state.filter === 'ACTIVE') {
+        return state.tasks.filter((task) => !task.isCompleted)
+      }
+      return state.tasks
     }
   },
   actions: {
     addTask(description: string) {
-      this.tasks.push({ description, id: this.nextId++, status: TodoTaskStatus.READY_TO_START })
+      this.tasks.push({ description, id: this.nextId++, isCompleted: false })
     },
     removeTask(task: TodoTask) {
       const indexToDelete = this.tasks.findIndex((t) => t.id === task.id)
@@ -31,10 +34,5 @@ export const useTodoTasksStore = defineStore('todoTasks', {
 export interface TodoTask {
   id: number
   description: string
-  status: TodoTaskStatus
-}
-
-export enum TodoTaskStatus {
-  COMPLETED,
-  READY_TO_START
+  isCompleted: boolean
 }

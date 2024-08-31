@@ -1,8 +1,14 @@
-import { describe, expect, it } from 'vitest'
+import { beforeAll, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import TodoInputTask from '@/components/molecules/TodoInputTask.vue'
+import { setActivePinia } from 'pinia'
+import { createTestingPinia } from '@pinia/testing'
 
 describe('TodoInputTask', () => {
+  beforeAll(() => {
+    setActivePinia(createTestingPinia())
+  })
+
   it('should render circle and input elements', () => {
     const wrapper = mount(TodoInputTask, {
       props: {

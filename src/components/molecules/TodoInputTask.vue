@@ -6,7 +6,7 @@ import { computed, ref } from 'vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import { app } from '@/constants/constants'
-import { useTodoTasksStore } from '@/stores/todoTasks'
+import { useTodoTasksStore } from '@/stores/todoTasksStore'
 
 interface TodoInputTaskProps {
   isTaskCompleted: boolean
