@@ -134,4 +134,33 @@ describe('Todo Task store', () => {
     expect(todoStore.tasks).length(2)
     expect(todoStore.tasks.filter((t) => t.id === 1)).toEqual([{ id: 1, isCompleted: true }])
   })
+
+  it('itemsLeftCounter should return number active tasks', () => {
+    setActivePinia(
+      createTestingPinia({
+        initialState: {
+          todoTasks: {
+            tasks: [
+              {
+                id: 0,
+                isCompleted: true
+              },
+              {
+                id: 1,
+                isCompleted: false
+              },
+              {
+                id: 3,
+                isCompleted: false
+              }
+            ]
+          }
+        },
+        stubActions: false
+      })
+    )
+    const todoStore = useTodoTasksStore()
+
+    expect(todoStore.itemsLeftCount).toEqual(2)
+  })
 })
