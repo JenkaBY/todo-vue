@@ -11,6 +11,6 @@ The tasks list:
 - [x] Task 6: Implement Task Deletion Functionality (Delete Icon)
 - [x] Task 7: Implement Drag-and-Drop Functionality for Task List
 - [x] Task 8: Implement Remaining Tasks Counter
-- [ ] Task 9: Implement Filters (All, Active, Completed)
+- [x] Task 9: Implement Filters (All, Active, Completed)
 - [ ] Task 10: Implement Clear Completed Button
 - [ ] [OPTIONAL] Task 11: Implement End-to-End (E2E) Testing with Cypress
