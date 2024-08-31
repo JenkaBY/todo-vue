@@ -3,7 +3,7 @@ import { computed } from 'vue'
 
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
-import { type TodoTask, TodoTaskStatus } from '@/stores/todoTasks'
+import { type TodoTask } from '@/stores/todoTasksStore'
 
 interface TodoItemProps {
   item: TodoTask
@@ -12,7 +12,7 @@ interface TodoItemProps {
 const todoTask = defineProps<TodoItemProps>()
 
 const isCompletedTask = computed<boolean>(() => {
-  return todoTask.item.status === TodoTaskStatus.COMPLETED
+  return todoTask.item.isCompleted
 })
 </script>
 

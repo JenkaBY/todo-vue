@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import TodoTasksList from '@/components/molecules/TodoTasksList.vue'
-import { TodoTaskStatus } from '@/stores/todoTasks.ts'
 import { createTestingPinia } from '@pinia/testing'
 
 describe('TodoTasksList', () => {
@@ -15,12 +14,12 @@ describe('TodoTasksList', () => {
                 tasks: [
                   {
                     id: 0,
-                    status: TodoTaskStatus.COMPLETED,
+                    isCompleted: true,
                     description: 'TASK 1'
                   },
                   {
                     id: 1,
-                    status: TodoTaskStatus.READY_TO_START,
+                    isCompleted: false,
                     description: 'TASK 2'
                   }
                 ]
