@@ -5,6 +5,7 @@ import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
 import { createTestingPinia } from '@pinia/testing'
 import { useTodoTasksStore } from '@/stores/todoTasksStore'
+import CrossIcon from '@/components/atoms/icons/CrossIcon.vue'
 
 describe('TodoItem', () => {
   let wrapper
@@ -81,5 +82,21 @@ describe('TodoItem', () => {
 
     expect(todoInput.classes('none')).toBe(true)
     expect(todoInput.classes('line-through')).toBe(false)
+  })
+
+  it('should render CrossIcon', () => {
+    expect(wrapper.findComponent(CrossIcon).exists()).toBe(true)
+  })
+
+  it('should delete task when clicked on CrossIcon', async () => {
+    await wrapper.findComponent(CrossIcon).trigger('click')
+
+    const store = useTodoTasksStore()
+    expect(store.removeTask).toHaveBeenCalledTimes(1)
+    expect(store.removeTask).toHaveBeenCalledWith({
+      id: 99,
+      description: 'Write unit tests',
+      isCompleted: false
+    })
   })
 })
