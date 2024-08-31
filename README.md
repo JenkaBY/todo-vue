@@ -9,7 +9,7 @@ The tasks list:
 - [x] Task 4: Create Task List with Add Task Functionality
 - [x] Task 5: Implement Task Completion Functionality (Checkbox)
 - [x] Task 6: Implement Task Deletion Functionality (Delete Icon)
-- [ ] Task 7: Implement Drag-and-Drop Functionality for Task List
+- [x] Task 7: Implement Drag-and-Drop Functionality for Task List
 - [ ] Task 8: Implement Remaining Tasks Counter
 - [ ] Task 9: Implement Filters (All, Active, Completed)
 - [ ] Task 10: Implement Clear Completed Button
