@@ -19,6 +19,9 @@ const currentActiveFilter = computed(() => {
 const setFilterToStore = (filterValue: string) => {
   store.updateFilter(filterValue as 'ALL' | 'COMPLETED' | 'ACTIVE')
 }
+const clearCompleted = () => {
+  store.removeCompleted()
+}
 </script>
 
 <template>
@@ -35,6 +38,13 @@ const setFilterToStore = (filterValue: string) => {
         class="filter-item"
       />
     </div>
-    <div class="clear-completion">Clear</div>
+    <div class="clear-completion">
+      <ButtonItem
+        name="Clear Completed"
+        val="deletedCompletedTask"
+        @btn-clicked="clearCompleted"
+        class="clear-completed-btn"
+      />
+    </div>
   </div>
 </template>

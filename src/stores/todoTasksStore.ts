@@ -30,6 +30,9 @@ export const useTodoTasksStore = defineStore('todoTasks', {
       const indexToDelete = this.tasks.findIndex((t) => t.id === task.id)
       this.tasks.splice(indexToDelete, 1)
     },
+    removeCompleted() {
+      this.tasks.filter((task) => task.isCompleted).forEach((task) => this.removeTask(task))
+    },
     changeStatus(task: TodoTask, newStatus: boolean) {
       const index = this.tasks.findIndex((t) => t.id === task.id)
       this.tasks[index] = { ...task, isCompleted: newStatus }
