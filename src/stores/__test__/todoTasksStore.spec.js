@@ -107,7 +107,6 @@ describe('Todo Task store', () => {
     expect(todoStore.tasks).toEqual([{ id: 1, isCompleted: false }])
   })
 
-
   it('should set new status for todo task', () => {
     setActivePinia(
       createTestingPinia({
@@ -133,6 +132,6 @@ describe('Todo Task store', () => {
     todoStore.changeStatus({ id: 1, isCompleted: false }, true)
 
     expect(todoStore.tasks).length(2)
-    expect(todoStore.tasks.filter(t => t.id === 1)).toEqual([{ id: 1, isCompleted: true }])
+    expect(todoStore.tasks.filter((t) => t.id === 1)).toEqual([{ id: 1, isCompleted: true }])
   })
 })

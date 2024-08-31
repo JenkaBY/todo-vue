@@ -3,26 +3,30 @@ import { computed } from 'vue'
 
 import TaskStatusIcon from '@/components/molecules/TaskStatusIcon.vue'
 import TodoInput from '@/components/atoms/TodoInput.vue'
-import { type TodoTask } from '@/stores/todoTasksStore'
+import { type TodoTask, useTodoTasksStore } from '@/stores/todoTasksStore'
 
-interface TodoItemProps {
-  item: TodoTask
+const task = defineProps<TodoTask>()
+const taskStore = useTodoTasksStore()
+
+const inverseTaskCompleted = () => {
+  taskStore.changeStatus(task, !task.isCompleted)
 }
-
-const todoTask = defineProps<TodoItemProps>()
-
-const isCompletedTask = computed<boolean>(() => {
-  return todoTask.item.isCompleted
-})
+const completed = computed(() => task.isCompleted)
+const description = computed(() => task.description)
 </script>
 
 <template>
   <div class="flex flex-row justify-between p-2 bg-none">
-    <TaskStatusIcon :completed="isCompletedTask" :inactive="false" class="m-1.5" />
+    <TaskStatusIcon
+      :completed="completed"
+      :inactive="false"
+      class="m-1.5"
+      @icon-clicked="inverseTaskCompleted"
+    />
     <TodoInput
       class="w-full pl-2 pr-2"
-      :input-value="todoTask.item.description"
-      place-holder=""
+      :class="completed ? 'line-through' : 'none'"
+      :input-value="description"
       :is-disabled="true"
     />
   </div>
