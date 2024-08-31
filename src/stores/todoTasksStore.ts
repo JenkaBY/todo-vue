@@ -17,6 +17,9 @@ export const useTodoTasksStore = defineStore('todoTasks', {
         return state.tasks.filter((task) => !task.isCompleted)
       }
       return state.tasks
+    },
+    itemsLeftCount(state): number {
+      return state.tasks.filter((task) => !task.isCompleted).length
     }
   },
   actions: {

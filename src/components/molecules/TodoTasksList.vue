@@ -3,6 +3,7 @@ import { type TodoTask, useTodoTasksStore } from '@/stores/todoTasksStore'
 import TodoItem from '@/components/molecules/TodoItem.vue'
 import { reactive, ref } from 'vue'
 import draggable from 'vuedraggable'
+import TaskManagement from '@/components/molecules/TaskManagement.vue'
 
 const dragging = ref<boolean>(false)
 const todoTasksStore = useTodoTasksStore()
@@ -24,6 +25,9 @@ const tasks = reactive<TodoTask[]>(todoTasksStore.filterTodoTasks)
         v-bind="element"
         class="task-item first:rounded-t-lg last:rounded-b-lg bg-white cursor-move"
       />
+    </template>
+    <template #footer>
+      <TaskManagement />
     </template>
   </draggable>
 </template>
