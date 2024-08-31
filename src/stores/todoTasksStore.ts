@@ -33,6 +33,9 @@ export const useTodoTasksStore = defineStore('todoTasks', {
     changeStatus(task: TodoTask, newStatus: boolean) {
       const index = this.tasks.findIndex((t) => t.id === task.id)
       this.tasks[index] = { ...task, isCompleted: newStatus }
+    },
+    updateFilter(filter: 'ALL' | 'COMPLETED' | 'ACTIVE') {
+      this.filter = filter
     }
   },
   persist: true

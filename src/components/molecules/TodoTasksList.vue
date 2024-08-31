@@ -7,7 +7,9 @@ import TaskManagement from '@/components/molecules/TaskManagement.vue'
 
 const dragging = ref<boolean>(false)
 const todoTasksStore = useTodoTasksStore()
-const tasks = computed<TodoTask[]>(() =>  { return todoTasksStore.filterTodoTasks;})
+const tasks = computed<TodoTask[]>(() => {
+  return todoTasksStore.filterTodoTasks
+})
 </script>
 
 <template>

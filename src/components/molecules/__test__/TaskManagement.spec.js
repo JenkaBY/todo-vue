@@ -40,4 +40,36 @@ describe('TaskManagement', () => {
       count: 2
     })
   })
+
+  it('should contain 3 filter buttons and only one active', () => {
+    const wrapper = mount(TaskManagement, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            stubActions: false
+          })
+        ]
+      }
+    })
+
+    expect(wrapper.findAll('button.filter-item').length).toEqual(3)
+    expect(wrapper.findAll('button.filter-item.active').length).toEqual(1)
+  })
+
+  it('active button should have specific classes', () => {
+    const wrapper = mount(TaskManagement, {
+      global: {
+        plugins: [
+          createTestingPinia({
+            stubActions: false
+          })
+        ]
+      }
+    })
+
+    expect(wrapper.find('button.filter-item.active').classes()).includes(
+      'text-grey-400',
+      'hover:text-grey-700'
+    )
+  })
 })
