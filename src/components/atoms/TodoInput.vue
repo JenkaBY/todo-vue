@@ -1,13 +1,13 @@
 <script setup lang="ts">
 interface TodoInputProps {
-  inputValue: string
-  placeHolder: string
-  isDisabled: boolean
+  inputValue?: string
+  placeHolder?: string
+  isDisabled?: boolean
 }
 
 withDefaults(defineProps<TodoInputProps>(), {
   inputValue: '',
-  placeHolder: 'Enter a text...',
+  placeHolder: '',
   isDisabled: false
 })
 

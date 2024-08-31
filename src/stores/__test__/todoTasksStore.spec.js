@@ -106,4 +106,32 @@ describe('Todo Task store', () => {
     expect(todoStore.tasks).length(1)
     expect(todoStore.tasks).toEqual([{ id: 1, isCompleted: false }])
   })
+
+  it('should set new status for todo task', () => {
+    setActivePinia(
+      createTestingPinia({
+        initialState: {
+          todoTasks: {
+            tasks: [
+              {
+                id: 0,
+                isCompleted: true
+              },
+              {
+                id: 1,
+                isCompleted: false
+              }
+            ]
+          }
+        },
+        stubActions: false
+      })
+    )
+    const todoStore = useTodoTasksStore()
+
+    todoStore.changeStatus({ id: 1, isCompleted: false }, true)
+
+    expect(todoStore.tasks).length(2)
+    expect(todoStore.tasks.filter((t) => t.id === 1)).toEqual([{ id: 1, isCompleted: true }])
+  })
 })

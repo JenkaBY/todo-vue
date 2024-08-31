@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed } from 'vue'
 
 import CheckIcon from '@/components/atoms/icons/CheckIcon.vue'
 import CircleIcon from '@/components/atoms/icons/CircleIcon.vue'
@@ -14,18 +14,29 @@ const props = withDefaults(defineProps<CompletedIconProps>(), {
   inactive: true
 }) as CompletedIconProps
 
-const completed = ref(props.completed)
+const iconState = computed<boolean>(() => props.completed)
+
+const emit = defineEmits<{
+  (e: 'iconClicked'): any
+}>()
+
+const iconClicked = () => {
+  if (props.inactive) {
+    return
+  }
+  emit('iconClicked')
+}
 </script>
 
 <template>
-  <div :class="inactive ? '' : 'cursor-pointer'">
+  <div :class="inactive ? '' : 'cursor-pointer'" @click="iconClicked">
     <CheckIcon
-      v-if="completed"
+      v-if="iconState"
       color="white"
       class="rounded-full bg-gradient-to-br from-blue-500 to-purple-500 border border-grey-100"
     />
     <CircleIcon
-      v-if="!completed"
+      v-else
       line-color="stroke-neutral-200"
       :hover-classes="inactive ? 'none' : 'hover:stroke-neutral-800'"
     />
