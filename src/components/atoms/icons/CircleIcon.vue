@@ -20,7 +20,6 @@ const props = withDefaults(
     :class="`${props.lineColor} ${props.hoverClasses}`"
   >
     <circle cx="10" cy="10" r="9" fill="none" />
-    />
   </svg>
 </template>
 
