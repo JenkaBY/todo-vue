@@ -9,6 +9,7 @@ An application is deployed and available [here](https://jenkaby.github.io/todo-v
 - pinia 2 for state store
 - pinia-plugin-persistedstate for persistence in localStorage
 - vuedraggable 4 for DnD functionality
+- tailwindcss for styling
 - @pinia/testing, vitest, @vue/test-utils for testing
 
 ### Actual design
