@@ -6,4 +6,4 @@ import AppHeaderNav from '@/components/molecules/AppHeaderNav.vue'
   <AppHeaderNav class="flex flex-row justify-items-start align-top min-h-40" />
 </template>
 
-<style scoped></style>
+

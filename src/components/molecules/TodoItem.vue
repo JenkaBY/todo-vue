@@ -38,4 +38,4 @@ const description = computed(() => task.description)
   </div>
 </template>
 
-<style scoped></style>
+

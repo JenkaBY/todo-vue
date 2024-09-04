@@ -30,7 +30,7 @@ const clearCompleted = () => {
     <div class="filter-tasks flex flex-row gap-2">
       <ButtonItem
         v-for="filter in filters"
-        v-bind:key="filter.value"
+        :key="filter.value"
         :name="filter.name"
         :val="filter.value"
         :active-classes="`${currentActiveFilter === filter.value ? 'text-grey-400 hover:text-grey-700 active' : ''}`"

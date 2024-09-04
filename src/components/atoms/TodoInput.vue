@@ -36,4 +36,4 @@ const handleUpdate = (event: any) => {
   />
 </template>
 
-<style scoped></style>
+
