@@ -15,4 +15,4 @@ provide(providerFunctionName.applicationTitle, app.title)
   </div>
 </template>
 
-<style scoped></style>
+

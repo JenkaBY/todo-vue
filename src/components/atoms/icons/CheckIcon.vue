@@ -20,4 +20,4 @@ const props = withDefaults(defineProps<IconProps>(), { color: 'red' }) as IconPr
   </svg>
 </template>
 
-<style scoped></style>
+

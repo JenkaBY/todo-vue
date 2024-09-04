@@ -16,4 +16,4 @@ const moonUnicode = '&#9790;'
   </div>
 </template>
 
-<style scoped></style>
+

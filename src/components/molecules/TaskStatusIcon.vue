@@ -43,4 +43,4 @@ const iconClicked = () => {
   </div>
 </template>
 
-<style scoped></style>
+

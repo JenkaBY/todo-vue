@@ -34,4 +34,4 @@ const tasks = computed<TodoTask[]>(() => {
   </draggable>
 </template>
 
-<style scoped></style>
+

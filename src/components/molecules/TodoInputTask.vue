@@ -68,4 +68,4 @@ const addNewTask = () => {
   </div>
 </template>
 
-<style scoped></style>
+
