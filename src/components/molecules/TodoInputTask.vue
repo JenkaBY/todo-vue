@@ -26,19 +26,14 @@ const rules = computed(() => ({
 }))
 const $v = useVuelidate(rules, { inputTodoTaskValue })
 
-const addNewTask = () => {
-  const result = $v.value.$validate()
-  result
-    .then((res) => {
-      if (res) {
+const addNewTask = async () => {
+  const result = await $v.value.$validate()
+
+      if (result) {
         todoTasksStore.addTask(inputTodoTaskValue.value)
         inputTodoTaskValue.value = ''
         $v.value.$reset()
       }
-    })
-    .catch((err) => {
-      console.log('An error occurred', err)
-    })
 }
 </script>
 
