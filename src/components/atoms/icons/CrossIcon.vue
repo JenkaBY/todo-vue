@@ -3,7 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     fill="currentColor"
-    class="size-5 stroke-slate-200 stroke-[0.8] cursor-pointer hover:stroke-1 hover:stroke-slate-400"
+    class="size-5 stroke-[0.8] stroke-slate-200 cursor-pointer hover:stroke-1 hover:stroke-slate-400"
   >
     <path
       fill-rule="evenodd"

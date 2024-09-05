@@ -1,11 +1,6 @@
 <script setup lang="ts">
-import { provide } from 'vue'
-
 import AppHeader from '@/components/organisms/AppHeader.vue'
 import AppMain from '@/components/organisms/AppMain.vue'
-import { app, providerFunctionName } from '@/constants/constants'
-
-provide(providerFunctionName.applicationTitle, app.title)
 </script>
 
 <template>
