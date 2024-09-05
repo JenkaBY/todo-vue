@@ -10,7 +10,7 @@ const props = withDefaults(defineProps<IconProps>(), { color: 'red' }) as IconPr
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 20 20"
     :fill="props.color"
-    class="size-5 stroke-2"
+    class="size-5"
   >
     <path
       fill-rule="evenodd"

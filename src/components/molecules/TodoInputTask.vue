@@ -29,23 +29,22 @@ const $v = useVuelidate(rules, { inputTodoTaskValue })
 const addNewTask = async () => {
   const result = await $v.value.$validate()
 
-      if (result) {
-        todoTasksStore.addTask(inputTodoTaskValue.value)
-        inputTodoTaskValue.value = ''
-        $v.value.$reset()
-      }
+  if (result) {
+    todoTasksStore.addTask(inputTodoTaskValue.value)
+    inputTodoTaskValue.value = ''
+    $v.value.$reset()
+  }
 }
+const hasError = computed(() => $v.value.inputTodoTaskValue.$error && $v.value.inputTodoTaskValue.$dirty)
 </script>
 
 <template>
   <div class="flex flex-col justify-start">
     <div
       class="flex flex-row justify-between p-2 bg-white rounded-lg input-wrapper"
-      :class="{
-        'border border-pink-500': $v.inputTodoTaskValue.$error && $v.inputTodoTaskValue.$dirty
-      }"
+      :class="{ 'border border-pink-500': hasError }"
     >
-      <TaskStatusIcon :completed="false" :inactive="true" class="m-1.5" />
+      <TaskStatusIcon class="m-1.5" />
       <TodoInput
         class="w-full pl-2 pr-2"
         v-model:input-value.trim="inputTodoTaskValue"
@@ -55,7 +54,7 @@ const addNewTask = async () => {
       />
     </div>
     <small
-      v-if="$v.inputTodoTaskValue.$dirty && $v.inputTodoTaskValue.$error"
+      v-if="hasError"
       class="validation-message ml-5 text-pink-500"
     >
       {{ $v.inputTodoTaskValue.$errors[0].$message }}</small

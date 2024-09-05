@@ -14,7 +14,7 @@ const props = withDefaults(
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="none"
+    fill="currentColor"
     viewBox="0 0 20 20"
     class="size-5 stroke-[0.8]"
     :class="`${props.lineColor} ${props.hoverClasses}`"
